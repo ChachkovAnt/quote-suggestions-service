@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  quotes-suggestions-service:
+    image: "suggestions_service:local"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ENVIRONEMENT: ${ENVIRONEMENT}
+        SERVICE_NAME: ${QUOTES_SUGGESTIONS_SERVICE_NAME}
+        PORT: ${QUOTES_SUGGESTIONS_PORT}
+    environment:
+      - ENVIRONEMENT=${ENVIRONEMENT}
+      - SERVICE_NAME=${QUOTES_SUGGESTIONS_SERVICE_NAME}
+      - PORT=${QUOTES_SUGGESTIONS_PORT}
+      - DEFAULT_CACHE_TTL=${QUOTES_SUGGESTIONS_DEFAULT_CACHE_TTL}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+    expose:
+      - ${QUOTES_SUGGESTIONS_PORT}
+    command: 'run'
+    depends_on:
+      - redis
+    restart: unless-stopped
