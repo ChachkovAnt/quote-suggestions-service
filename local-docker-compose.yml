@@ -18,9 +18,9 @@ services:
       - REDIS_HOST=${REDIS_HOST}
       - REDIS_PORT=${REDIS_PORT}
     ports:
-      - "5000:5000"
+      - "${QUOTES_SUGGESTIONS_PORT}:${QUOTES_SUGGESTIONS_PORT}"
     expose:
-      - 5000
+      - ${QUOTES_SUGGESTIONS_PORT}
     command: 'run'
     depends_on:
       - redis
@@ -31,9 +31,7 @@ services:
       context: ./redis
       dockerfile: Dockerfile
     expose:
-      - 6379
-    ports:
-      - "6379:6379"
+      - ${REDIS_PORT}
     restart: unless-stopped
 
   web:

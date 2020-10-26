@@ -19,6 +19,8 @@ services:
       - REDIS_PORT=${REDIS_PORT}
     expose:
       - ${QUOTES_SUGGESTIONS_PORT}
+    ports:
+      - "${QUOTES_SUGGESTIONS_PORT}:${QUOTES_SUGGESTIONS_PORT}"
     command: 'run'
     depends_on:
       - redis

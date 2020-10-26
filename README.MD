@@ -14,17 +14,17 @@
 
 - Запрос для получения случайных цитат авторов `John Lennon` и `Princess Diana`:
 ```
-    GET /suggestions?authors=John+Lennon,Princess+Diana
+    GET /suggestions?authors=John Lennon,Princess Diana
 ```
 
 - Запрос для получения цитат автора `John Lennon`. Если в цитатах автора есть слова из списка `keywords`, они будут в выдаче сверху:
 ```
-    GET /suggestions?authors=John+Lennon&keywords=love,peace
+    GET /suggestions?authors=John Lennon&keywords=love,peace
 ```
 
 - Запрос вернет первую наиболее подходящую циату автора `John Lennon`
 ```
-    GET /suggestions?authors=John+Lennon&keywords=love,peace?limit=1
+    GET /suggestions?authors=John Lennon&keywords=love,peace?limit=1
 ```
 
 - Запрос для получения цитат по ключевым словам:
@@ -34,7 +34,7 @@
 
 - Запрос для получения цитат о `John Lennon`:
 ```
-    GET /suggestions?keywords=John+Lennon
+    GET /suggestions?keywords=John Lennon
 ```
 
 *Если не передавать параметры `limit` и `offset`, то эндпоинт вернет 5 первых цитат из выдачи*
